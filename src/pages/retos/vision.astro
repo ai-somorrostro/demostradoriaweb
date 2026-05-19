@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const proyectos = [
+  {
+    nombre: "NutrIA",
+    repo: "https://github.com/ai-somorrostro/2526R2G2_webots",
+    desc: "Robótica + visión en Webots. Cinta transportadora simulada, cámara virtual y YOLO para identificar alimentos. Si supera el umbral calórico, un actuador los retira de la línea. Bucle cerrado completo.",
+  },
+  {
+    nombre: "BeachBot",
+    repo: "https://github.com/ai-somorrostro/2526R2G3_aws-api",
+    desc: "Clasificación de residuos en playas con YOLO11 sobre arquitectura serverless. Resultados a Kafka → S3 → Lambda → DynamoDB. Consultas via API Gateway y monitorización con CloudWatch.",
+  },
+  {
+    nombre: "Smart Trash",
+    repo: "https://github.com/ai-somorrostro/2526R2G4_smart-trash",
+    desc: "YOLOv8 entrenado para clasificar 5 categorías de residuos. Optimización con Optuna, exportación a ONNX, TensorBoard. Resultado: 95,4% de precisión Top-1.",
+  },
+];
+---
+
+<BaseLayout title="Reto – Visión" description="Reto de Modelos de Visión">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <nav class="text-sm text-gray-500 mb-8">
+      <a href="/retos" class="hover:text-gray-900 transition-colors">Retos</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-900">Visión</span>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Modelos de Visión</h1>
+    <p class="text-lg text-gray-600 mb-4">
+      Convertir imagen y vídeo en datos útiles para la toma de decisiones. YOLO,
+      pipelines de procesamiento, robótica, cloud y streaming; el reto cubría
+      todo el ciclo desde la cámara hasta la alerta.
+    </p>
+    <p class="text-gray-500 mb-10">
+      Tres equipos, tres contextos: una fábrica simulada, una playa y un
+      contenedor de reciclaje.
+    </p>
+
+    <div class="space-y-4 mb-14">
+      {
+        proyectos.map(({ nombre, repo, desc }) => (
+          <div class="border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h2 class="font-semibold text-gray-900 text-lg">{nombre}</h2>
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="shrink-0 text-xs text-gray-400 hover:text-gray-700 border border-gray-200 px-2 py-1 rounded transition-colors"
+              >
+                GitHub →
+              </a>
+            </div>
+            <p class="text-gray-600 text-sm">{desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div>
+      <h2 class="font-semibold text-gray-900 mb-3">Enunciado del reto</h2>
+      <iframe
+        src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/ai-somorrostro/retosdemostradoria/master/documentos-retos/RetoModelosdeVision.pdf&embedded=true"
+        class="w-full h-[600px] rounded-lg border border-gray-200"
+        title="Enunciado Reto Modelos de Visión"
+      />
+      <p class="text-xs text-gray-400 mt-2">
+        ¿No carga?{" "}
+        <a
+          href="https://raw.githubusercontent.com/ai-somorrostro/retosdemostradoria/master/documentos-retos/RetoModelosdeVision.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-gray-700"
+        >
+          Descarga el PDF
+        </a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>

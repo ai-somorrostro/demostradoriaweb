@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const subpaginas = [
+  {
+    href: "/retos/lenguaje",
+    titulo: "Lenguaje",
+    descripcion: "Descripción del reto de lenguaje. Objetivos, metodología y resultados.",
+  },
+  {
+    href: "/retos/vision",
+    titulo: "Visión",
+    descripcion: "Descripción del reto de visión. Objetivos, metodología y resultados.",
+  },
+];
+---
+
+<BaseLayout title="Retos" description="Retos de MEC – Lenguaje y Visión">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Retos</h1>
+    <div class="max-w-2xl mb-12 space-y-4 text-lg text-gray-600">
+      <p>
+        En este proyecto se ha trabajado el ciclo de vida de dos tipos de
+        proyectos de Inteligencia Artificial: <strong class="text-gray-800">Proyectos de Lenguaje</strong> y{" "}
+        <strong class="text-gray-800">Proyectos de Visión</strong>, ya que cada
+        uno tiene un ciclo de vida y una gestión diferente.
+      </p>
+      <p>
+        Inicialmente solo se contemplaron proyectos de visión, pero la irrupción
+        de los modelos generativos ha hecho necesario incorporar también
+        proyectos de lenguaje.
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        subpaginas.map(({ href, titulo, descripcion }) => (
+          <a
+            href={href}
+            class="group block border border-gray-200 rounded-lg p-8 hover:border-gray-400 transition-colors"
+          >
+            <h2 class="text-xl font-semibold text-gray-900 group-hover:underline mb-3">
+              {titulo}
+            </h2>
+            <p class="text-gray-600">{descripcion}</p>
+            <span class="mt-4 inline-block text-sm text-gray-500 group-hover:text-gray-900 transition-colors">
+              Ver más →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

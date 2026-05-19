@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const noticias = await getCollection("noticias");
+const ultimasNoticias = noticias
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Inicio" description="Demostrador de un sistema de integración continúa desplegado bajo tecnologías Cloud para proyectos de Inteligencia Artificial">
+  <section class="max-w-6xl mx-auto px-4 py-20">
+    <h1 class="text-5xl font-bold tracking-tight text-gray-900 mb-6">
+      Bienvenidos al demostrador de un sistema de integración continúa desplegado bajo tecnologías Cloud para proyectos de Inteligencia Artificial.
+    </h1>
+    <p class="text-xl text-gray-600 max-w-2xl mb-10">
+      En esta web se encuentran todos los conteidos, evidencias y productos generados a traves de este proyecto.
+    </p>
+    <div class="flex gap-4">
+      <a
+        href="/retos"
+        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-md font-medium hover:bg-gray-700 transition-colors"
+      >
+        Retos Generados
+      </a>
+      <a
+        href="/servicios"
+        class="inline-block border border-gray-300 text-gray-700 px-6 py-3 rounded-md font-medium hover:bg-gray-50 transition-colors"
+      >
+        Servicios Generados
+      </a>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 pb-20">
+    <div class="flex justify-between items-baseline mb-8">
+      <h2 class="text-2xl font-bold text-gray-900">Últimas Noticias</h2>
+      <a href="/noticias" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+        Ver todas →
+      </a>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        ultimasNoticias.map((noticia) => (
+          <a
+            href={`/noticias/${noticia.id}`}
+            class="group block border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors"
+          >
+            <time class="text-xs text-gray-400 block mb-2">
+              {noticia.data.fecha.toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <h3 class="font-semibold text-gray-900 group-hover:underline mb-2">
+              {noticia.data.titulo}
+            </h3>
+            <p class="text-sm text-gray-600">{noticia.data.descripcion}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

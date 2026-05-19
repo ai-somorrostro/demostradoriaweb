@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const noticias = await getCollection("noticias");
+  return noticias.map((noticia) => ({
+    params: { slug: noticia.id },
+    props: { noticia },
+  }));
+}
+
+const { noticia } = Astro.props;
+const { Content } = await render(noticia);
+---
+
+<BaseLayout title={noticia.data.titulo} description={noticia.data.descripcion}>
+  <article class="max-w-3xl mx-auto px-4 py-16">
+    <nav class="text-sm text-gray-500 mb-8">
+      <a href="/noticias" class="hover:text-gray-900 transition-colors">Noticias</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-900">{noticia.data.titulo}</span>
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {
+          noticia.data.etiquetas.map((tag) => (
+            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {noticia.data.titulo}
+      </h1>
+      <div class="flex items-center gap-4 text-sm text-gray-500">
+        <time>
+          {
+            noticia.data.fecha.toLocaleDateString("es-ES", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+        {noticia.data.autor && <span>por {noticia.data.autor}</span>}
+      </div>
+    </header>
+
+    <div class="prose prose-gray max-w-none">
+      <Content />
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-gray-200">
+      <a
+        href="/noticias"
+        class="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+      >
+        ← Volver a Noticias
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

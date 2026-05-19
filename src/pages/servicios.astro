@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Servicios" description="Servicios de MEC">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-gray-900 mb-6">Servicios</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mb-12">
+      Descubre los servicios que MEC ofrece. Desde asesoría técnica hasta
+      implementación de soluciones a medida.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+      {
+        [
+          { titulo: "Punto de inferencia (LLM, VLM, RAG, etc.)", desc: "Para retos basados en modelos de lenguaje." },
+          { titulo: "Training containers", desc: "Para el entrenamiento de modelos de vision (YOLO, RT-DTER)." },
+          { titulo: "GPU utils", desc: "Herramientas de gestion del los recursos hardware y de las GPUs" },
+        ].map(({ titulo, desc }) => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h2 class="font-semibold text-gray-900 mb-2">{titulo}</h2>
+            <p class="text-sm text-gray-600">{desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

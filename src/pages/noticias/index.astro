@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const noticias = await getCollection("noticias");
+const noticiasSorted = noticias.sort(
+  (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime()
+);
+---
+
+<BaseLayout title="Noticias" description="Últimas noticias de MEC">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Noticias</h1>
+    <p class="text-lg text-gray-600 mb-12">
+      Actualizaciones periódicas sobre proyectos, eventos y novedades de MEC.
+    </p>
+
+    <ul class="divide-y divide-gray-200">
+      {
+        noticiasSorted.map((noticia) => (
+          <li class="py-8">
+            <a href={`/noticias/${noticia.id}`} class="group block">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap gap-2 mb-2">
+                    {noticia.data.etiquetas.map((tag) => (
+                      <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h2 class="text-xl font-semibold text-gray-900 group-hover:underline mb-2">
+                    {noticia.data.titulo}
+                  </h2>
+                  <p class="text-gray-600">{noticia.data.descripcion}</p>
+                  {noticia.data.autor && (
+                    <p class="text-sm text-gray-400 mt-2">{noticia.data.autor}</p>
+                  )}
+                </div>
+                <time class="text-sm text-gray-400 whitespace-nowrap shrink-0">
+                  {noticia.data.fecha.toLocaleDateString("es-ES", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
