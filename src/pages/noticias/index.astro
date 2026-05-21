@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { url } from "../../utils/url";
 
 const noticias = await getCollection("noticias");
 const noticiasSorted = noticias.sort(
@@ -19,7 +20,7 @@ const noticiasSorted = noticias.sort(
       {
         noticiasSorted.map((noticia) => (
           <li class="py-8">
-            <a href={`/noticias/${noticia.id}`} class="group block">
+            <a href={url(`/noticias/${noticia.id}`)} class="group block">
               <div class="flex items-start justify-between gap-4">
                 <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap gap-2 mb-2">

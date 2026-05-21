@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { url } from "../../utils/url";
 
 const proyectos = [
   {
@@ -23,7 +24,7 @@ const proyectos = [
 <BaseLayout title="Reto – Lenguaje" description="Reto de Modelos de Lenguaje">
   <div class="max-w-4xl mx-auto px-4 py-16">
     <nav class="text-sm text-gray-500 mb-8">
-      <a href="/retos" class="hover:text-gray-900 transition-colors">Retos</a>
+      <a href={url("/retos")} class="hover:text-gray-900 transition-colors">Retos</a>
       <span class="mx-2">›</span>
       <span class="text-gray-900">Lenguaje</span>
     </nav>

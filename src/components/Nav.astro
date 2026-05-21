@@ -1,22 +1,26 @@
 ---
+import { url } from "../utils/url";
+
 const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/retos", label: "Retos" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/noticias", label: "Noticias" },
+  { href: url("/"), label: "Inicio" },
+  { href: url("/retos"), label: "Retos" },
+  { href: url("/servicios"), label: "Servicios" },
+  { href: url("/noticias"), label: "Noticias" },
 ];
 
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
-  if (href === "/") return currentPath === "/";
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const plain = href.replace(base, "") || "/";
+  if (plain === "/") return currentPath === href;
   return currentPath.startsWith(href);
 }
 ---
 
 <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
   <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-    <a href="/" class="font-bold text-lg tracking-tight text-gray-900">
+    <a href={url("/")} class="font-bold text-lg tracking-tight text-gray-900">
       Demostrador IA
     </a>
 

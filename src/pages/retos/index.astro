@@ -1,14 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { url } from "../../utils/url";
 
 const subpaginas = [
   {
-    href: "/retos/lenguaje",
+    href: url("/retos/lenguaje"),
     titulo: "Lenguaje",
     descripcion: "Descripción del reto de lenguaje. Objetivos, metodología y resultados.",
   },
   {
-    href: "/retos/vision",
+    href: url("/retos/vision"),
     titulo: "Visión",
     descripcion: "Descripción del reto de visión. Objetivos, metodología y resultados.",
   },

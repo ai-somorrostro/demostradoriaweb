@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
+import { url } from "../../utils/url";
 
 export async function getStaticPaths() {
   const noticias = await getCollection("noticias");
@@ -17,7 +18,7 @@ const { Content } = await render(noticia);
 <BaseLayout title={noticia.data.titulo} description={noticia.data.descripcion}>
   <article class="max-w-3xl mx-auto px-4 py-16">
     <nav class="text-sm text-gray-500 mb-8">
-      <a href="/noticias" class="hover:text-gray-900 transition-colors">Noticias</a>
+      <a href={url("/noticias")} class="hover:text-gray-900 transition-colors">Noticias</a>
       <span class="mx-2">›</span>
       <span class="text-gray-900">{noticia.data.titulo}</span>
     </nav>
@@ -55,7 +56,7 @@ const { Content } = await render(noticia);
 
     <footer class="mt-16 pt-8 border-t border-gray-200">
       <a
-        href="/noticias"
+        href={url("/noticias")}
         class="text-sm text-gray-500 hover:text-gray-900 transition-colors"
       >
         ← Volver a Noticias
