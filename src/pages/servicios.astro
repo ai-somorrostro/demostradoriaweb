@@ -1,25 +1,53 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const servicios = [
+  {
+    nombre: "Servicio de Inferencia",
+    repo: "https://github.com/ai-somorrostro/inference-service",
+    etiqueta: "vLLM · GPUStack",
+    desc: "Plataforma local para que el alumnado pueda desplegar y probar modelos de lenguaje, embedding y multimodales sobre la infraestructura del centro. El objetivo no es solo usar los modelos — es aprender a dimensionar, configurar y desplegar un servicio de inferencia real desde cero.",
+  },
+  {
+    nombre: "Infraestructura del Clúster",
+    repo: "https://github.com/ai-somorrostro/cluster_infra",
+    etiqueta: "Proxmox · Shell · HCL",
+    desc: "Scripts y utilidades para gestionar el clúster: aprovisionamiento de VMs, gestión de GPUs, resolución de incidencias y dimensionamiento del entorno.",
+  },
+  {
+    nombre: "Contenedores de Entrenamiento",
+    repo: "https://github.com/ai-somorrostro/training_containers",
+    etiqueta: "Docker · YOLO · Python",
+    desc: "Contenedores preconfigurados para lanzar entrenamientos de modelos de visión (YOLO) con soporte GPU. Incluye optimización de hiperparámetros con Optuna y estructura de dataset estandarizada, para que el alumnado pueda reproducir experimentos sin pelearse con el entorno.",
+  },
+];
 ---
 
-<BaseLayout title="Servicios" description="Servicios de MEC">
+<BaseLayout title="Servicios" description="Servicios e infraestructura de MEC">
   <div class="max-w-4xl mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold text-gray-900 mb-6">Servicios</h1>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Servicios</h1>
     <p class="text-lg text-gray-600 max-w-2xl mb-12">
-      Descubre los servicios que MEC ofrece. Desde asesoría técnica hasta
-      implementación de soluciones a medida.
+      Herramientas e infraestructura que dan soporte a los proyectos de IA del
+      centro. Del clúster al contenedor, pasando por los modelos.
     </p>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+    <div class="space-y-6">
       {
-        [
-          { titulo: "Punto de inferencia (LLM, VLM, RAG, etc.)", desc: "Para retos basados en modelos de lenguaje." },
-          { titulo: "Training containers", desc: "Para el entrenamiento de modelos de vision (YOLO, RT-DTER)." },
-          { titulo: "GPU utils", desc: "Herramientas de gestion del los recursos hardware y de las GPUs" },
-        ].map(({ titulo, desc }) => (
-          <div class="border border-gray-200 rounded-lg p-6">
-            <h2 class="font-semibold text-gray-900 mb-2">{titulo}</h2>
-            <p class="text-sm text-gray-600">{desc}</p>
+        servicios.map(({ nombre, repo, etiqueta, desc }) => (
+          <div class="border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors">
+            <div class="flex items-start justify-between gap-4 mb-1">
+              <h2 class="font-semibold text-gray-900 text-lg">{nombre}</h2>
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="shrink-0 text-xs text-gray-400 hover:text-gray-700 border border-gray-200 px-2 py-1 rounded transition-colors"
+              >
+                GitHub →
+              </a>
+            </div>
+            <p class="text-xs text-gray-400 mb-3">{etiqueta}</p>
+            <p class="text-gray-600 text-sm">{desc}</p>
           </div>
         ))
       }
