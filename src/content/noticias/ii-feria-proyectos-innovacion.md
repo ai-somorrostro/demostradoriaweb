@@ -1,27 +1,17 @@
 ---
-titulo: "Somorrostro reúne a centros de FP y empresas en la II Feria de Proyectos de Innovación"
-descripcion: "21 proyectos, más de 1.000 estudiantes y colaboraciones de toda España. Robótica, IA, 5G y energías renovables tomaron el centro durante una jornada."
+titulo: "II Feria de Proyectos de Innovación de FP"
+descripcion: "El demostrador se expuso ante más de 1.000 estudiantes y profesorado de toda España en una jornada inaugurada por el viceconsejero de FP del Gobierno Vasco."
 fecha: 2026-03-11
 autor: "CF Somorrostro"
 etiquetas: ["evento", "innovación", "FP", "Somorrostro"]
 destacada: true
 ---
 
-El pasado 11 de marzo, el Centro Formación Somorrostro acogió la **II Feria de Proyectos de Innovación de FP**, con 21 proyectos desarrollados en colaboración entre centros educativos y empresas dentro de la convocatoria del Ministerio de Educación.
+El proyecto participó en la **II Feria de Proyectos de Innovación de Formación Profesional**, celebrada en el Centro de Formación Somorrostro, que reunió a centros de FP y empresas de distintos puntos del Estado en torno a 21 proyectos de innovación del Ministerio de Educación, Formación Profesional y Deportes.
 
-## Lo que se presentó
+La jornada fue inaugurada por **Jon Labaka, viceconsejero de Formación Profesional del Gobierno Vasco**. El demostrador se expuso junto a otras iniciativas en torno a la inteligencia artificial, la robótica, el 5G y la realidad virtual, y fue visitado por más de 1.000 estudiantes del centro, además de profesorado procedente de otros centros del Estado.
 
-Proyectos reales, no maquetas. Robots móviles autónomos para entornos industriales, simuladores de generación eléctrica, sistemas de mantenimiento con realidad aumentada, redes privadas 5G aplicadas a eventos deportivos... tecnologías de **Industria 4.0** explicadas por el alumnado que las ha construido.
-
-El viceconsejero de FP del Gobierno Vasco, **Jon Labaka**, lo resumió bien:
-
-> "Estos proyectos dejan mucho más que maquetas o prototipos: generan redes de colaboración, conocimiento y abren la puerta a nuevas tecnologías y futuros desarrollos."
-
-## Alcance
-
-- **21 proyectos** de innovación presentados
-- **Más de 1.000 estudiantes** de FP, ESO y Bachillerato pasaron por los stands
-- Profesorado colaborador de centros de toda España
+Esta participación permitió dar a conocer el proyecto fuera del aula, establecer contactos con centros con líneas de trabajo similares y reforzar la visibilidad del demostrador dentro del ecosistema de innovación en FP.
 
 ---
 
