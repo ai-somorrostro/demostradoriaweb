@@ -4,7 +4,7 @@ const year = new Date().getFullYear();
 
 const logos = [
   { src: url("/logos/somorrostro.png"), alt: "Centro de Formación Somorrostro" },
-  { src: url("/logos/wirtz.png"), alt: "IES Fernando Wirtz" },
+  { src: url("/logos/wirtz.svg"), alt: "IES Fernando Wirtz" },
   { src: url("/logos/ministerio.png"), alt: "Ministerio de Educación, Formación Profesional y Deportes" },
   { src: url("/logos/prtr.png"), alt: "Plan de Recuperación, Transformación y Resiliencia" },
   { src: url("/logos/next-generation-eu.png"), alt: "Financiado por la Unión Europea – NextGenerationEU" },
@@ -15,7 +15,7 @@ const logos = [
   <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col gap-6">
     <div class="flex flex-wrap items-center justify-center gap-8">
       {logos.map(({ src, alt }) => (
-        <img src={src} alt={alt} class="h-12 w-auto object-contain" />
+        <img src={src} alt={alt} class="h-12 w-auto object-contain mix-blend-multiply" />
       ))}
     </div>
     <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500 border-t border-gray-100 pt-6">
